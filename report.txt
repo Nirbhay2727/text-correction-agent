@@ -1,0 +1,43 @@
+Submitted by- Harshit Mawandia(2020CS10348) and Nirbhay Kumar(2020CS10365)
+
+COL333 ASSIGNMENT 1
+
+PROBLEM STATEMENT:
+Given a string minismise its cost function taking in account possible character replacements.
+
+
+KEY IDEA:
+We traverse the string linearly searching for possible word replacement of a single word at a time
+
+
+PARAMETERS:
+threshold: cost improvements less than threshold will be appended in thresArr
+
+thresArr: A partial frontier containing changes which did not result in the best state but cost improvement was low so should be considered. 
+
+best_state: lowest cost state found till now
+
+prev_state: best state prior any changes in the current word
+
+new_state: state with char replacements at index i
+
+step_state: state with changes reversed and next char replaced
+
+
+ALGORITHM DESCRIPTION:
+1. Linearly traverse the string and search for char substitutions within a word. 
+
+2. Replace one character at a time, assigning the best state to the new state if the cost of the sentence with the replaced character is less than the cost of the best state.
+
+    2.1 If the cost difference between the original sentence's(without changing that word) cost and the new state's cost, it is added to the thresArr.
+
+3. Traverse the thresArr and undo the modification that was done if the cost of the replacement character is more than the best state. This is the backtracking phase. Continue to swap out the following character, and compare the price to the best state. 
+
+    3.1 If the cost improvement is less than a specific threshold, the change is included in the thresArr. 
+
+4. Optimal modifications to the aforementioned algorithm are taken into account, along with those that have a smaller impact on the cost function. This way we end up searching the state space not only grededily but also eye at potential improvements after a (not so good) step.
+
+
+TESTING: Algorithm gives 100% correct output for the test cases provided.
+
+
